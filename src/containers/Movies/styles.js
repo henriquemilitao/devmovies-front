@@ -1,12 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 
 const scale = keyframes`
-    from {
-        transform: scale(0);
-    } 
-    to {
-        transform: scale(1);
-    }
+    from { transform: scale(0); }
+    to { transform: scale(1); }
 `;
 
 export const Background = styled.div`
@@ -47,11 +43,15 @@ export const Container = styled.div`
   max-width: 1500px;
   padding: 20px;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const Info = styled.div`
   z-index: 2;
-  /* padding: 20px; */
   width: 50%;
 
   h1 {
@@ -67,16 +67,39 @@ export const Info = styled.div`
     margin-top: 30px;
     margin-bottom: 20px;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 16px;
+      margin-top: 15px;
+    }
+  }
 `;
 
 export const Poster = styled.div`
   z-index: 2;
-  /* padding: 20px; */
 
   img {
     width: 400px;
     border-radius: 30px;
     animation: ${scale} 0.35s linear;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 60vw;
+      max-width: 300px;
+    }
   }
 `;
 
@@ -84,4 +107,14 @@ export const ContainerButtons = styled.div`
   display: flex;
   gap: 20px;
   margin-top: 40px;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    gap: 10px;
+
+    button {
+       font-size: 14px;
+       padding: 10px 20px;
+    }
+  }
 `;

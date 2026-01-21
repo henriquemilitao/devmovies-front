@@ -1,12 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 
 const scale = keyframes`
-    from {
-        transform: scale(0);
-    } 
-    to {
-        transform: scale(1);
-    }
+    from { transform: scale(0); }
+    to { transform: scale(1); }
 `;
 
 export const Background = styled.div`
@@ -44,7 +40,15 @@ export const Container = styled.div`
   align-items: flex-start;
   height: 100%;
   max-width: 1500px;
-  margin-top: -150px;
+  margin-top: -150px; /* Padrão Desktop */
+  padding: 0 20px;
+
+  // CELULAR: Tira a margem negativa e empilha
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0; 
+  }
 `;
 
 export const Poster = styled.div`
@@ -59,6 +63,18 @@ export const Poster = styled.div`
     border-radius: 30px;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
     animation: ${scale} 0.35s linear;
+  }
+
+  // CELULAR: Ajusta o tamanho da imagem
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+    margin-top: -50px; /* Sobe um pouquinho só pra ficar bonito na capa */
+    
+    img {
+      width: 200px; /* Bem menor */
+    }
   }
 `;
 
@@ -78,11 +94,21 @@ export const Info = styled.div`
 
   p {
     font-weight: 700;
-    /* margin: 20px 0 30px; */
     color: #ffffff;
-
     span {
       font-weight: 400;
+    }
+  }
+
+  // CELULAR: Ajusta textos e largura
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    
+    h2 {
+      font-size: 30px;
+      margin-top: 10px;
     }
   }
 `;
@@ -111,5 +137,15 @@ export const ContainerVideos = styled.div`
 
   iframe {
     border: none;
+  }
+
+  // CELULAR: Ajusta videos e margens
+  @media (max-width: 768px) {
+    margin-top: 40px;
+    gap: 40px;
+    
+    iframe {
+      height: 300px; /* Reduz altura do player */
+    }
   }
 `;

@@ -1,12 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 
 const scale = keyframes`
-    from {
-        transform: scale(0);
-    } 
-    to {
-        transform: scale(1);
-    }
+    from { transform: scale(0); }
+    to { transform: scale(1); }
 `;
 
 export const Background = styled.div`
@@ -45,6 +41,13 @@ export const Container = styled.div`
   height: 100%;
   max-width: 1500px;
   margin-top: -150px;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  }
 `;
 
 export const Poster = styled.div`
@@ -59,6 +62,17 @@ export const Poster = styled.div`
     border-radius: 30px;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
     animation: ${scale} 0.35s linear;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+    margin-top: -50px;
+
+    img {
+      width: 200px;
+    }
   }
 `;
 
@@ -83,6 +97,17 @@ export const Info = styled.div`
 
     span {
       font-weight: 400;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+
+    h2 {
+      font-size: 30px;
+      margin-top: 10px;
     }
   }
 `;
@@ -112,6 +137,15 @@ export const ContainerVideos = styled.div`
   iframe {
     border: none;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 40px;
+    gap: 40px;
+
+    iframe {
+      height: 300px;
+    }
+  }
 `;
 
 export const Pictures = styled.div`
@@ -120,5 +154,14 @@ export const Pictures = styled.div`
 
   img {
     height: 200px;
+  }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    img {
+      height: 100px;
+    }
   }
 `;

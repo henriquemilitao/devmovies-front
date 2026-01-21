@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   min-height: 90px;
-  z-index: 3;
+  z-index: 99; /* Aumentei o z-index pra garantir que fique acima de tudo */
   position: fixed;
   top: 0;
   display: flex;
@@ -17,12 +17,27 @@ export const Container = styled.div`
   img {
     width: 25%;
   }
+
+  /* Ajustes para Mobile */
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    min-height: 70px;
+
+    img {
+      width: 30%; /* Logo um pouco maior proporcionalmente no mobile */
+      max-width: 150px;
+    }
+  }
 `;
 
 export const Menu = styled.ul`
   display: flex;
   list-style: none;
   gap: 50px;
+
+  @media (max-width: 768px) {
+    gap: 20px; /* Diminui o espaço entre os itens */
+  }
 `;
 
 export const Li = styled.li`
@@ -48,7 +63,11 @@ export const Li = styled.li`
     transition: width 0.3s ease-in-out;
   }
 
-  /* &:hover::after {
-    width: 100%;
-  } */
+  @media (max-width: 768px) {
+    font-size: 18px; /* Fonte menor no celular */
+    
+    &::after {
+        bottom: -5px;
+    }
+  }
 `;

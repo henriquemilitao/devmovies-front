@@ -16,11 +16,13 @@ export const Container = styled.div`
     cursor: pointer;
   }
 
-  .swiper-wrapper:active {
-    cursor: grabbing; /* Quando o mouse está clicado e segurado */
-  }
+  /* Ajustes mobile */
+  @media (max-width: 768px) {
+    padding: 0 10px 20px;
 
-  .swiper-wrapper.dragging {
-    cursor: grab;
+    h2 {
+        font-size: 18px;
+        margin: 30px 0 10px 10px;
+    }
   }
 `;
